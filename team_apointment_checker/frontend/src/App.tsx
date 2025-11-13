@@ -3,18 +3,14 @@ import Navbar from "./components/Navbar";
 import AppointmentsList from "./pages/AppointmentsList";
 import BookAppointment from "./pages/BookAppointment";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Navbar />
-      <div style={{ padding: "20px" }}>
-        <Routes>
-          <Route path="/" element={<AppointmentsList />} />
-          <Route path="/book" element={<BookAppointment />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<AppointmentsList />} />
+        <Route path="/book" element={<BookAppointment />} />
+      </Routes>
     </Router>
   );
 }
-
-export default App;

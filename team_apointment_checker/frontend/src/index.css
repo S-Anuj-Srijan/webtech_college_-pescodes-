@@ -1,34 +1,64 @@
-/* frontend/src/index.css */
-
-/* Reset */
+/* === Global Reset & Theme === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-/* Page background */
+/* Make every container fill the viewport */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background-color: #f5f7fa;
-  color: #222;
+  font-family: 'Poppins', 'Inter', sans-serif;
+ 
+  background: transparent;
+  overflow-x: hidden;
+  /* Remove centering from body – each page controls its own layout */
 }
 
-/* Simple button styles */
-button {
-  background-color: #007bff;
-  border: none;
-  color: white;
-  padding: 6px 12px;
+/* === Scrollbar styling (optional) === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #007bff;
   border-radius: 4px;
-  cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* Simple layout spacing */
-.container {
-  padding: 20px;
+/* === Default Page Wrapper === */
+.page-wrapper {
+  min-height: calc(100vh - 80px); /* Full height below navbar */
+  width: 100%;
+  margin-top: 80px; /* Account for fixed navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Background theme (shared look for all main pages) === */
+.page-wrapper {
+  background: radial-gradient(circle at center, #0b132b 0%, #000 100%);
+  
+}
+
+/* === Text defaults === */
+h1, h2, h3, h4, h5, h6 {
+  color: #00b7ff;
+  font-weight: 600;
+}
+
+p {
+  color: #f0f0f0;
+  line-height: 1.5;
 }

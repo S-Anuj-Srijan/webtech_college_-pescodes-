@@ -1,0 +1,165 @@
+/* === Appointment Page Layout === */
+.appointment-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+/* === Background GIF === */
+.background-gif {
+  position: absolute;
+  inset: 0;
+  background: url("/background.gif") center/cover no-repeat;
+  z-index: -3;
+  filter: brightness(0.65) blur(2px);
+}
+
+/* === Bouncing PNG — Magical Portal (Behind the Card, Clickable) === */
+.bouncing-png {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation: bouncePortal 12s infinite ease-in-out alternate;
+  z-index: 0; /* visually behind the glass card */
+  opacity: 0.85;
+  cursor: pointer;
+  filter: drop-shadow(0 0 15px rgba(0, 153, 255, 0.6));
+  transition: transform 0.3s ease, filter 0.4s ease;
+  mix-blend-mode: overlay; /* keeps behind-glass illusion */
+}
+
+.bouncing-png:hover {
+  transform: scale(1.25) rotate(8deg);
+  filter: drop-shadow(0 0 25px rgba(0, 153, 255, 0.9));
+}
+
+/* === Portal Bounce Animation === */
+@keyframes bouncePortal {
+  0% {
+    top: 10%;
+    left: 10%;
+  }
+  25% {
+    top: 50%;
+    left: 70%;
+  }
+  50% {
+    top: 80%;
+    left: 25%;
+  }
+  75% {
+    top: 30%;
+    left: 60%;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+  }
+}
+
+/* === Appointment Form Container === */
+.appointment-container {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  max-width: 440px;
+  text-align: center;
+  z-index: 1; /* above PNG */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: fadeIn 1s ease forwards;
+  pointer-events: auto; /* form remains clickable */
+}
+
+/* === Subtle Fade-in Animation === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Header === */
+.appointment-container h2 {
+  color: #007bff;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* === Form Styling === */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* === Inputs & Selects === */
+input,
+select {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+}
+
+/* === Button === */
+button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  font-weight: 500;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #004a99);
+  transform: translateY(-2px);
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .appointment-container {
+    padding: 1.8rem 1.5rem;
+    width: 92%;
+  }
+
+  .bouncing-png {
+    width: 80px;
+    height: 80px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
